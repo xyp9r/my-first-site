@@ -1,0 +1,374 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-color: black;
+	font-family: 'Montserrat' , sans-serif;
+	color: white;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+h1 {
+	margin-top: 0;
+	margin-bottom: 20px;
+	font-size: 32px;
+}
+h2 {
+	margin-top: 30px;
+	margin-bottom: 15px;
+	color: gold;
+}
+p {
+	margin-bottom: 20px;
+	font-size: 18px;
+	line-height: 1.6;
+	color: #cccccc;
+}
+.btn {
+	background-color: gold;
+	color: black;
+	padding: 15px 30px;
+	border-radius: 8px;
+	font-weight: bold;
+	cursor: pointer;
+	transition: 0.3s;
+	text-decoration: none;
+	display: inline-block;
+}
+.btn:hover {
+	background-color: white;
+	color: black;
+	transform: scale(1.1);
+	box-shadow: 0 0 15px gold;
+}
+.container {
+	background-color: #222;
+	width: 90%;
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 40px;
+	border-radius: 20px;
+	text-align: center;
+	margin-top: 100px;
+}
+.avatar {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	border: 3px solid gold;
+	padding: 0px;
+	object-fit: cover;
+	transition: 0.5s;
+	margin-top: -55px;
+	margin-bottom: 10px;
+}
+.avatar:hover {
+	transform: rotate(10deg) scale(1.1);
+	border-color: white;
+}
+.header {
+	background-color: #111;
+	padding: 15px 5%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+	z-index: 100;
+}
+.logo {
+	font-weight: bold;
+	font-size: 24px;
+	color: gold;
+}
+.nav-link {
+	color: white;
+	text-decoration: none;
+	margin-left: 20px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+.nav-link:hover {
+	color: gold;
+}
+.project-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+	max-width: 1200px;
+	margin: 0px auto;
+	padding: 20px;
+}
+.project-card {
+	background-color: #1a1a1a;
+	padding: 20px;
+	border-radius: 15px;
+	width: 300px;
+	text-align: center;
+	border-radius: 15px solid #333;
+	transition: 0.3s;
+	border: 2px solid #333;
+}
+.project-card:hover {
+	transform: translateY(-10px);
+	border-color: gold;
+}
+.project-card h3 {
+	color: gold;
+	margin-bottom: 10px;
+}
+.project-card button,
+.project-card a {
+	background-color: gold;
+	color: black;
+	border: none;
+	padding: 10px 25px;
+	border-radius: 5px;
+	font-weight: bold;
+	cursor: pointer;
+	margin-top: 15px;
+	transition: 0.3s;
+	text-decoration: none;
+	display: inline-block;
+}
+.project-card button:hover 
+.project-card a:hover {
+	background-color: white;
+	transform: scale(1.05);
+	color: black;
+}
+footer {
+	background-color: DimGrey;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 10px;
+	text-align: center;
+	margin-top: auto;
+	width: 100%;
+}
+.light-theme {
+	background-color: #f0f2f5;
+	color: #333333;
+}
+.light-theme .header {
+	background-color: #ffffff;
+	box-shadow: 0 2px 10px rgba(0,0,0, 0.1);
+}
+.light-theme .nav-link {
+	color: #555;
+}
+.light-theme .nav-link:hover {
+	color: #000;
+}
+.light-theme .container {
+	background-color: #ffffff;
+	color: #000;
+	box-shadow: 0 10px 30px rgba(0,0,0, 0.1);
+}
+.light-theme p {
+	color: #444;
+}
+.light-theme h1,
+.light-theme h2 {
+    color: black !important; 
+    text-shadow: none;       
+}
+.light-theme .project-card {
+	background-color: #ffffff;
+	border: 2px solid #333;
+	color: black;
+}
+.light-theme .project-card h3 {
+	color: #d4af37;
+}
+.light-theme .project-card p {
+	color: #666;
+}
+.light-theme footer {
+	background-color: #e0e0e0;
+	color: #555;
+}
+#theme-btn {
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	font-size: 30px;
+	background: none;
+	border: none;
+	cursor: pointer;
+	z-index: 1000;
+	transition: transform 0.3s;
+}
+.google-header {
+	text-align: right;
+	padding: 20px;
+}
+
+.google-header a {
+	margin-right: 15px;
+	text-decoration: none;
+	color: inherit;
+	font-size: 14px;
+}
+.google-header .back-btn {
+	padding: 8px 15px;
+	font-size: 14px;
+}
+.google.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 70vh;
+	flex: 1;
+	width: 100%;
+}
+.google-logo {
+	font-size: 90px;
+	font-weight: bold;
+	margin-bottom: 30px;
+	letter-spacing: -5px;
+}
+.search-input {
+	width: 100%;
+	max-width: 580px;
+	padding: 15px 20px;
+	border-radius: 30px;
+	border: 1px solid #5f6368;
+	background-color: transparent;
+	color: inherit;
+	font-size: 16px;
+	outline: none;
+	margin-bottom: 30px;
+	transition: box-shadow 0.2s;
+}
+.search-input:focus {
+	background-color: #303134;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+	border-color: transparent;
+}
+body.light-theme .search-input {
+	background-color: #fff;
+	border: 1px solid #dfe1e5;
+}
+.google-buttons button {
+	background-color: #303134;
+	border: 1px solid #303134;
+	color: #e8eaed;
+	padding: 10px 20px;
+	margin: 0 5px;
+	border-radius: 4px;
+	cursor: pointer;
+	font-family: inherit;
+}
+.google-buttons button:hover {
+	border: 1px solid #5f6368;
+}
+body.light-theme .google-buttons button {
+	background-color: #f8f9fa;
+	border: 1px solid #f8f9fa;
+	color: #3c4043;
+}
+body.light-theme .google-buttons button:hover {
+	background-color: #f8f9fa;
+	border: 1px solid #dadce0;
+	box-shadow: 0 1px 1 px rgba(0,0,0, 0.1)
+}/* } <--- ВОТ ЭТА скобка на случай, если ты забыл закрыть прошлый блок. Если их будет две - не страшно. */
+
+/* --- Стили для Google Clone --- */
+
+/* Шапка */
+.google-header {
+    text-align: right;
+    padding: 20px;
+}
+
+.google-header a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+}
+
+.google-header .back-btn {
+    padding: 8px 15px; 
+    font-size: 14px;
+}
+
+/* ГЛАВНОЕ: Центровка */
+.google-main {
+    display: flex; /* Включаем "резиновую" верстку */
+    flex-direction: column; /* Элементы в столбик */
+    align-items: center; /* Центр по горизонтали (слева-направо) */
+    justify-content: center; /* Центр по вертикали (сверху-вниз) */
+    
+    flex: 1; /* МАГИЯ: Занимаем всё свободное место между шапкой и низом */
+    width: 100%; /* На всякий случай */
+}
+
+/* Логотип */
+.google-logo {
+    font-size: 90px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    letter-spacing: -5px;
+}
+
+/* Поле поиска */
+.search-input {
+    width: 100%;
+    max-width: 580px;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: 1px solid #5f6368;
+    background-color: transparent;
+    color: inherit;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 30px;
+}
+
+/* Кнопки */
+.google-buttons button {
+    background-color: #303134;
+    border: 1px solid #303134;
+    color: #e8eaed;
+    padding: 10px 20px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- Светлая тема (проверяем, чтобы работала) --- */
+body.light-theme .search-input {
+    background-color: #fff;
+    border: 1px solid #dfe1e5;
+}
+
+body.light-theme .google-buttons button {
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    color: #3c4043;
+}
+@keyframes jump {
+	0% { transform: translateY(0);}
+	50% { transform: translateY(-20px);}
+	100% { transform: translateY(0);}
+}
+.google-logo span {
+	display: inline-block;
+	transition: transform 0.2s;
+	cursor: default;
+}
+.google-logo span:hover {
+	animation: jump 0.6s ease infinite;
+	color: gold !important;
+}
