@@ -38,3 +38,15 @@ themeButton.addEventListener("click" , function () {
 		localStorage.setItem("theme" , "dark");
 	}
 });
+function search() {
+    let input = document.getElementById('google-input');
+    let text = input.value;
+    if (text !== "") {
+        window.location.href = 'https://www.google.com/search?q=' + text;
+    } else {
+        alert("Введи хоть что-нибудь! 😅");
+    }
+}
+function lucky() {
+    window.location.href = "https://hackertyper.net/";
+}

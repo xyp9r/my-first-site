@@ -16,10 +16,10 @@
         <div class="google-logo">
             <span style="color: #4285f4;">G</span><span style="color: #ea4335;">o</span><span style="color: #fbbc05;">o</span><span style="color: #4285f4;">g</span><span style="color: #34a853;">l</span><span style="color: #ea4335;">e</span>
         </div>
-        <input type="text" class="search-input" placeholder="Введите запрос...">
+        <input type="text" class="search-input" id="google-input" placeholder="Введите запрос..." onchange="search()">
         <div class="google-buttons">
-            <button>Поиск в Google</button>
-            <button>Мне повезёт!</button>
+            <button onclick="search()">Поиск в Google</button>
+            <button onclick="lucky()">Мне повезёт!</button>
         </div>
     </div>
     <button id="theme-btn">☀️</button>
