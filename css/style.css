@@ -372,3 +372,139 @@ body.light-theme .google-buttons button {
 	animation: jump 0.6s ease infinite;
 	color: gold !important;
 }
+/* ========================
+   СТРАНИЦА МАГАЗИНА (SHOP)
+   ======================== */
+   .shop-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 40px 20px;
+   }
+   .shop-container h1 {
+	text-align: center;
+	margin-bottom: 40px;
+	font-size: 36px;
+	color: gold;
+   }
+   .product-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill minmax(280px, 1fr));
+	gap: 30px;
+   }
+   .product-card {
+	background-color: #1f1f1f;
+	border: 1px solid #333;
+	border-radius: 15px;
+	padding: 15px;
+	text-align: center;
+	transition: 0.3s;
+   }
+   .product-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+   }
+   .product-card img {
+	width: 100%;
+	height: 250px;
+	object-fit: cover;
+	border-radius: 10px;
+	margin-bottom: 15px;
+   }
+   .product-card h3 {
+	margin: 10px 0;
+	font-size: 20px;
+   }
+   .product-card .price {
+	font-size: 18px;
+	font-weight: bold;
+	color: #ddd;
+	margin-bottom: 15px;
+   }
+   .shop-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 40px;
+	background-color: #111;
+	border-bottom: 1px solid #333;
+   }
+   .shop-header a {
+	text-decoration: none;
+	color: #fff;
+	font-size: 18px;
+	margin-left: 30px;
+	transition: 0.3s;
+   }
+   .shop-header .logo {
+	color: gold;
+	font-weight: bold;
+	font-size: 24px;
+	margin-left: 0;
+	text-transform: uppercase;
+   }
+   .shop-header nav a:hover {
+	color: gold;
+   }
+   .product-card button {
+   	background-color: gold;
+   	color: black;
+   	border: none;
+   	border-radius: 8px;
+   	padding: 12px 20px;
+   	font-weight: bold;
+   	cursor: pointer;
+   	width: 100%;
+   	margin-top: 10px;
+   	transition: 0.3s;
+   }
+   .product-card button:hover {
+   	background-color: white;
+   	box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+   }
+   .empty-message {
+   	text-align: center; 
+   	display: none;
+   }
+   .order-btn {
+   	display: none;
+   	margin: 40px auto;
+   	background: gold;
+   	border: none;
+   	padding: 15px 30px;
+   	font-weight: bold;
+   	cursor: pointer;
+   	border-radius: 10px;
+   }
+   .delete-btn {
+   	background-color: #ff4d4d;
+   	color: white;
+   	border: none;
+   	padding: 8px 15px;
+   	border-radius: 5px;
+   	cursor: pointer;
+   	margin-top: 10px;
+   	font-size: 14px;
+   }
+   .delete-btn:hover {
+   	background-color: #cc0000;
+   }
+   .total-price {
+   	text-align: center;
+   	font-size: 24px;
+   	font-weight: bold;
+   	margin: 20px 0;
+   	color: white;
+   }
+   #cart-items .product-card {
+   	margin-bottom: 30px;
+   }
+   .size-select {
+   	background-color: #333;
+   	color: white;
+   	border: 1px solid: gold;
+   	padding: 5px;
+   	border-radius: 5px;
+   	margin-bottom: 10px;
+   	width: 100%;
+   	cursor: pointer;
+   }
