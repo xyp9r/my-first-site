@@ -42,7 +42,7 @@ if (buyButtons.length > 0) {
 			updateCartCount();
 			let originalText = button.innerText;
 			button.innerText = "Добавлено (Размер + " + size + ")";
-			button.style.backgroundColor = "#4CAF%)";
+			button.style.backgroundColor = "#4CAF0)";
 			button.style.color = "white";
 
 			setTimeout(function() {
