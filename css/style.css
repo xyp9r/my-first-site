@@ -1,291 +1,307 @@
+/* =========================================
+   1. БАЗОВЫЕ НАСТРОЙКИ (RESET & MAIN)
+   ========================================= */
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
 body {
-	background-color: black;
-	font-family: 'Montserrat' , sans-serif;
-	color: white;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
+    background-color: black;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Убирает горизонтальную прокрутку */
 }
+
+/* Ссылки */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Заголовки и текст */
 h1 {
-	margin-top: 0;
-	margin-bottom: 20px;
-	font-size: 32px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 32px;
 }
+
 h2 {
-	margin-top: 30px;
-	margin-bottom: 15px;
-	color: gold;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: gold;
 }
+
 p {
-	margin-bottom: 20px;
-	font-size: 18px;
-	line-height: 1.6;
-	color: #cccccc;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #cccccc;
 }
+
+/* =========================================
+   2. КОМПОНЕНТЫ (Кнопки, Контейнеры)
+   ========================================= */
 .btn {
-	background-color: gold;
-	color: black;
-	padding: 15px 30px;
-	border-radius: 8px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: 0.3s;
-	text-decoration: none;
-	display: inline-block;
+    background-color: gold;
+    color: black;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
 }
+
 .btn:hover {
-	background-color: white;
-	color: black;
-	transform: scale(1.1);
-	box-shadow: 0 0 15px gold;
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px gold;
 }
+
+/* Контейнер "Обо мне" */
 .container {
-	background-color: #222;
-	width: 90%;
-	max-width: 500px;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 40px;
-	border-radius: 20px;
-	text-align: center;
-	margin-top: 100px;
+    background-color: #222;
+    width: 90%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    
+    /* Отступ сверху */
+    margin-top: 160px; 
+    
+    position: relative;
+    z-index: 1;
 }
+
+/* Аватарка */
 .avatar {
-	width: 150px;
-	height: 150px;
-	border-radius: 50%;
-	border: 3px solid gold;
-	padding: 0px;
-	object-fit: cover;
-	transition: 0.5s;
-	margin-top: -55px;
-	margin-bottom: 10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid gold;
+    object-fit: cover;
+    transition: 0.5s;
+    margin-top: -55px;
+    margin-bottom: 10px;
 }
+
+@keyframes goldPulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0 ,0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
 .avatar:hover {
-	transform: rotate(10deg) scale(1.1);
-	border-color: white;
+    transform: rotate(5deg) scale(1.05);
+    border-color: white;
+    animation: goldPulse 1.5s infinite;
 }
+
+/* =========================================
+   3. ШАПКА И ФУТЕР
+   ========================================= */
 .header {
-	background-color: #111;
-	padding: 15px 5%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-	z-index: 100;
+    background-color: #111;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    z-index: 100;
 }
+
 .logo {
-	font-weight: bold;
-	font-size: 24px;
-	color: gold;
+    font-weight: bold;
+    font-size: 24px;
+    color: gold;
 }
+
 .nav-link {
-	color: white;
-	text-decoration: none;
-	margin-left: 20px;
-	font-weight: bold;
-	transition: 0.3s;
+    color: white;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
 }
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: gold;
+    transition: width 0.3 ease;
+}
+
+.nav-link:hover:after {
+    width: 100%;
+}
+
 .nav-link:hover {
-	color: gold;
+    color: gold;
 }
+
+footer {
+    background-color: DimGrey;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 10px;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* =========================================
+   4. СВЕТЛАЯ ТЕМА (ИСПРАВЛЕНИЕ ЦВЕТОВ)
+   ========================================= */
+/* Кнопка переключения */
+#theme-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s;
+}
+
+/* Основные стили светлой темы */
+body.light-theme {
+    background-color: #f0f2f5;
+    color: black;
+}
+
+body.light-theme .header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0, 0.1);
+}
+
+body.light-theme .nav-link {
+    color: #333;
+}
+
+body.light-theme .nav-link:hover {
+    color: black;
+}
+
+body.light-theme .container {
+    background-color: #ffffff;
+    color: black;
+    box-shadow: 0 10px 30px rgba(0,0,0, 0.1);
+}
+
+/* Текст в светлой теме */
+body.light-theme p {
+    color: black !important;
+}
+
+body.light-theme h1, 
+body.light-theme h2 {
+    color: black !important;
+    text-shadow: none;
+}
+
+body.light-theme .project-card {
+    background-color: #ffffff;
+    border: 2px solid #333;
+    color: black;
+}
+
+body.light-theme .project-card h3 {
+    color: #d4af37;
+}
+
+body.light-theme .project-card p {
+    color: black !important;
+}
+
+body.light-theme footer {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* =========================================
+   5. ПРОЕКТЫ (СЕТКА)
+   ========================================= */
 .project-grid {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	gap: 20px;
-	max-width: 1200px;
-	margin: 0px auto;
-	padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
+
 .project-card {
-	background-color: #1a1a1a;
-	padding: 20px;
-	border-radius: 15px;
-	width: 300px;
-	text-align: center;
-	border-radius: 15px solid #333;
-	transition: 0.3s;
-	border: 2px solid #333;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    border: 2px solid #333;
+    transition: 0.3s;
+    
+    position: relative; 
+    z-index: 1; 
+    overflow: hidden;
 }
+
 .project-card:hover {
-	transform: translateY(-10px);
-	border-color: gold;
+    transform: translateY(-10px);
+    border-color: gold;
+    z-index: 100 !important; 
+    box-shadow: 0 10px 40px rgba(0,0,0, 0.5);
 }
+
 .project-card h3 {
-	color: gold;
-	margin-bottom: 10px;
+    color: gold;
+    margin-bottom: 10px;
 }
+
 .project-card button,
 .project-card a {
-	background-color: gold;
-	color: black;
-	border: none;
-	padding: 10px 25px;
-	border-radius: 5px;
-	font-weight: bold;
-	cursor: pointer;
-	margin-top: 15px;
-	transition: 0.3s;
-	text-decoration: none;
-	display: inline-block;
+    background-color: gold;
+    color: black;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+    display: inline-block;
 }
-.project-card button:hover 
+
+.project-card button:hover,
 .project-card a:hover {
-	background-color: white;
-	transform: scale(1.05);
-	color: black;
-}
-footer {
-	background-color: DimGrey;
-	font-weight: bold;
-	font-size: 15px;
-	padding: 10px;
-	text-align: center;
-	margin-top: auto;
-	width: 100%;
-}
-.light-theme {
-	background-color: #f0f2f5;
-	color: #333333;
-}
-.light-theme .header {
-	background-color: #ffffff;
-	box-shadow: 0 2px 10px rgba(0,0,0, 0.1);
-}
-.light-theme .nav-link {
-	color: #555;
-}
-.light-theme .nav-link:hover {
-	color: #000;
-}
-.light-theme .container {
-	background-color: #ffffff;
-	color: #000;
-	box-shadow: 0 10px 30px rgba(0,0,0, 0.1);
-}
-.light-theme p {
-	color: #444;
-}
-.light-theme h1,
-.light-theme h2 {
-    color: black !important; 
-    text-shadow: none;       
-}
-.light-theme .project-card {
-	background-color: #ffffff;
-	border: 2px solid #333;
-	color: black;
-}
-.light-theme .project-card h3 {
-	color: #d4af37;
-}
-.light-theme .project-card p {
-	color: #666;
-}
-.light-theme footer {
-	background-color: #e0e0e0;
-	color: #555;
-}
-#theme-btn {
-	position: fixed;
-	bottom: 30px;
-	right: 30px;
-	font-size: 30px;
-	background: none;
-	border: none;
-	cursor: pointer;
-	z-index: 1000;
-	transition: transform 0.3s;
-}
-.google-header {
-	text-align: right;
-	padding: 20px;
+    background-color: white;
+    transform: scale(1.05);
+    color: black;
 }
 
-.google-header a {
-	margin-right: 15px;
-	text-decoration: none;
-	color: inherit;
-	font-size: 14px;
-}
-.google-header .back-btn {
-	padding: 8px 15px;
-	font-size: 14px;
-}
-.google.main {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	min-height: 70vh;
-	flex: 1;
-	width: 100%;
-}
-.google-logo {
-	font-size: 90px;
-	font-weight: bold;
-	margin-bottom: 30px;
-	letter-spacing: -5px;
-}
-.search-input {
-	width: 100%;
-	max-width: 580px;
-	padding: 15px 20px;
-	border-radius: 30px;
-	border: 1px solid #5f6368;
-	background-color: transparent;
-	color: inherit;
-	font-size: 16px;
-	outline: none;
-	margin-bottom: 30px;
-	transition: box-shadow 0.2s;
-}
-.search-input:focus {
-	background-color: #303134;
-	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
-	border-color: transparent;
-}
-body.light-theme .search-input {
-	background-color: #fff;
-	border: 1px solid #dfe1e5;
-}
-.google-buttons button {
-	background-color: #303134;
-	border: 1px solid #303134;
-	color: #e8eaed;
-	padding: 10px 20px;
-	margin: 0 5px;
-	border-radius: 4px;
-	cursor: pointer;
-	font-family: inherit;
-}
-.google-buttons button:hover {
-	border: 1px solid #5f6368;
-}
-body.light-theme .google-buttons button {
-	background-color: #f8f9fa;
-	border: 1px solid #f8f9fa;
-	color: #3c4043;
-}
-body.light-theme .google-buttons button:hover {
-	background-color: #f8f9fa;
-	border: 1px solid #dadce0;
-	box-shadow: 0 1px 1 px rgba(0,0,0, 0.1)
-}/* } <--- ВОТ ЭТА скобка на случай, если ты забыл закрыть прошлый блок. Если их будет две - не страшно. */
-
-/* --- Стили для Google Clone --- */
-
-/* Шапка */
+/* =========================================
+   6. GOOGLE CLONE
+   ========================================= */
 .google-header {
     text-align: right;
     padding: 20px;
@@ -293,28 +309,23 @@ body.light-theme .google-buttons button:hover {
 
 .google-header a {
     margin-right: 15px;
-    text-decoration: none;
-    color: inherit;
     font-size: 14px;
 }
 
 .google-header .back-btn {
-    padding: 8px 15px; 
+    padding: 8px 15px;
     font-size: 14px;
 }
 
-/* ГЛАВНОЕ: Центровка */
 .google-main {
-    display: flex; /* Включаем "резиновую" верстку */
-    flex-direction: column; /* Элементы в столбик */
-    align-items: center; /* Центр по горизонтали (слева-направо) */
-    justify-content: center; /* Центр по вертикали (сверху-вниз) */
-    
-    flex: 1; /* МАГИЯ: Занимаем всё свободное место между шапкой и низом */
-    width: 100%; /* На всякий случай */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
 }
 
-/* Логотип */
 .google-logo {
     font-size: 90px;
     font-weight: bold;
@@ -322,7 +333,6 @@ body.light-theme .google-buttons button:hover {
     letter-spacing: -5px;
 }
 
-/* Поле поиска */
 .search-input {
     width: 100%;
     max-width: 580px;
@@ -332,11 +342,16 @@ body.light-theme .google-buttons button:hover {
     background-color: transparent;
     color: inherit;
     font-size: 16px;
-    outline: none;
     margin-bottom: 30px;
+    outline: none;
 }
 
-/* Кнопки */
+.search-input:focus {
+    background-color: #303134;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+    border-color: transparent;
+}
+
 .google-buttons button {
     background-color: #303134;
     border: 1px solid #303134;
@@ -347,7 +362,6 @@ body.light-theme .google-buttons button:hover {
     cursor: pointer;
 }
 
-/* --- Светлая тема (проверяем, чтобы работала) --- */
 body.light-theme .search-input {
     background-color: #fff;
     border: 1px solid #dfe1e5;
@@ -358,153 +372,258 @@ body.light-theme .google-buttons button {
     border: 1px solid #f8f9fa;
     color: #3c4043;
 }
+
+/* Анимация букв Google */
 @keyframes jump {
-	0% { transform: translateY(0);}
-	50% { transform: translateY(-20px);}
-	100% { transform: translateY(0);}
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
 }
+
 .google-logo span {
-	display: inline-block;
-	transition: transform 0.2s;
-	cursor: default;
+    display: inline-block;
+    transition: transform 0.2s;
+    cursor: default;
 }
+
 .google-logo span:hover {
-	animation: jump 0.6s ease infinite;
-	color: gold !important;
+    animation: jump 0.6s ease infinite;
+    color: gold !important;
 }
-/* ========================
-   СТРАНИЦА МАГАЗИНА (SHOP)
-   ======================== */
-   .shop-container {
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 40px 20px;
-   }
-   .shop-container h1 {
-	text-align: center;
-	margin-bottom: 40px;
-	font-size: 36px;
-	color: gold;
-   }
-   .product-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fill minmax(280px, 1fr));
-	gap: 30px;
-   }
-   .product-card {
-	background-color: #1f1f1f;
-	border: 1px solid #333;
-	border-radius: 15px;
-	padding: 15px;
-	text-align: center;
-	transition: 0.3s;
-   }
-   .product-card:hover {
-	transform: translateY(-10px);
-	box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
-   }
-   .product-card img {
-	width: 100%;
-	height: 250px;
-	object-fit: cover;
-	border-radius: 10px;
-	margin-bottom: 15px;
-   }
-   .product-card h3 {
-	margin: 10px 0;
-	font-size: 20px;
-   }
-   .product-card .price {
-	font-size: 18px;
-	font-weight: bold;
-	color: #ddd;
-	margin-bottom: 15px;
-   }
-   .shop-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 20px 40px;
-	background-color: #111;
-	border-bottom: 1px solid #333;
-   }
-   .shop-header a {
-	text-decoration: none;
-	color: #fff;
-	font-size: 18px;
-	margin-left: 30px;
-	transition: 0.3s;
-   }
-   .shop-header .logo {
-	color: gold;
-	font-weight: bold;
-	font-size: 24px;
-	margin-left: 0;
-	text-transform: uppercase;
-   }
-   .shop-header nav a:hover {
-	color: gold;
-   }
-   .product-card button {
-   	background-color: gold;
-   	color: black;
-   	border: none;
-   	border-radius: 8px;
-   	padding: 12px 20px;
-   	font-weight: bold;
-   	cursor: pointer;
-   	width: 100%;
-   	margin-top: 10px;
-   	transition: 0.3s;
-   }
-   .product-card button:hover {
-   	background-color: white;
-   	box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-   }
-   .empty-message {
-   	text-align: center; 
-   	display: none;
-   }
-   .order-btn {
-   	display: none;
-   	margin: 40px auto;
-   	background: gold;
-   	border: none;
-   	padding: 15px 30px;
-   	font-weight: bold;
-   	cursor: pointer;
-   	border-radius: 10px;
-   }
-   .delete-btn {
-   	background-color: #ff4d4d;
-   	color: white;
-   	border: none;
-   	padding: 8px 15px;
-   	border-radius: 5px;
-   	cursor: pointer;
-   	margin-top: 10px;
-   	font-size: 14px;
-   }
-   .delete-btn:hover {
-   	background-color: #cc0000;
-   }
-   .total-price {
-   	text-align: center;
-   	font-size: 24px;
-   	font-weight: bold;
-   	margin: 20px 0;
-   	color: white;
-   }
-   #cart-items .product-card {
-   	margin-bottom: 30px;
-   }
-   .size-select {
-   	background-color: #333;
-   	color: white;
-   	border: 1px solid: gold;
-   	padding: 5px;
-   	border-radius: 5px;
-   	margin-bottom: 10px;
-   	width: 100%;
-   	cursor: pointer;
-   }
+
+/* =========================================
+   7. МАГАЗИН (SHOP)
+   ========================================= */
+.shop-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 20px 40px; 
+    background-color: #111; 
+    border-bottom: 1px solid #333; 
+}
+
+.shop-header a { 
+    font-size: 18px; 
+    margin-left: 30px; 
+    transition: 0.3s; 
+}
+
+.shop-header .logo { 
+    color: gold; 
+    font-weight: bold; 
+    font-size: 24px; 
+    margin-left: 0; 
+    text-transform: uppercase; 
+}
+
+.shop-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.shop-container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 36px;
+    color: gold;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+.product-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.size-select {
+    background-color: #333;
+    color: white;
+    border: 1px solid gold;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.product-card button {
+    background-color: gold;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.empty-message,
+.order-btn {
+    display: none;
+}
+
+.order-btn {
+    margin: 40px auto;
+    background: gold;
+    padding: 15px 30px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.total-price {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+#cart-items .product-card {
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   8. МАТРИЦА (ФИНАЛЬНЫЕ ИСПРАВЛЕНИЯ)
+   ========================================= */
+
+/* Специальный класс для body на странице матрицы */
+.matrix-body {
+    margin: 0;
+    overflow: hidden; /* Убирает скролл на странице матрицы */
+    background-color: black;
+    /* Убираем flex, чтобы canvas нормально позиционировался */
+    display: block; 
+}
+
+/* ВАЖНОЕ ИСПРАВЛЕНИЕ: 
+   Мы применяем стили к canvas ТОЛЬКО внутри .matrix-body.
+   Это чтобы canvas не ломал другие страницы, если он там случайно появится.
+   И ставим position: fixed, чтобы он был фоном и ничего не сдвигал.
+*/
+.matrix-body canvas {
+    display: block;
+    position: fixed; /* Жестко фиксируем на фоне */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Самый нижний слой */
+}
+
+/* Кнопка "Назад" - ПРИКЛЕЕНА ПОВЕРХ ВСЕГО */
+.matrix-back {
+    position: fixed; 
+    top: 20px;
+    left: 20px;
+    
+    color: #0F0;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #0F0;
+    
+    padding: 10px 20px;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 18px;
+    
+    /* Ставим z-index больше, чем у canvas (100 > 1) */
+    z-index: 100; 
+    transition: 0.3s;
+}
+
+.matrix-back:hover {
+    background-color: #0F0;
+    color: black;
+    box-shadow: 0 0 20px #0F0;
+}
+
+/* Хакерская карточка в проектах (Черная с зеленым) */
+.hacker-card {
+    background-color: black !important;
+    border: 1px solid #0F0 !important;
+    box-shadow: 0 0 5px #0F0;
+}
+
+.hacker-card h3 {
+    color: #0F0 !important;
+    font-family: 'Courier New', monospace;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px #0F0;
+}
+
+.hacker-card p {
+    color: #0F0 !important;
+    font-family: monospace;
+    opacity: 0.8;
+}
+
+.hacker-card a {
+    background-color: transparent !important;
+    border: 1px solid #0F0 !important;
+    color: #0F0 !important;
+}
+
+.hacker-card a:hover {
+    background-color: #0F0 !important;
+    color: black !important;
+    box-shadow: 0 0 15px #0F0;
+}
+/* === Новые анимации === */
+
+.product-card {
+    overflow: hidden;
+}
+
+.product-card img {
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.04);
+}
