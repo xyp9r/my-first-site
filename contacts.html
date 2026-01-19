@@ -3,30 +3,48 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Контакты</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<title>Контакты | Иван Сиренко</title>
+	<link rel='icon' type="image/png" href="img/foto.png">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<header class="header">
-		<div class="logo">xyp9r</div>
-		<nav>
-			<a href="index.html" class="nav-link">Обо мне</a>
-			<a href="projects.html" class="nav-link">Проекты</a>
-			<a href="contacts.html" class="nav-link">Контакты</a>
-		</nav>
-	</header>
-	<button id="theme-btn">☀️</button>
-	<div class="container">
-		<p>Пишите мне в Телеграм:
-			<a href="https://t.me/fuck4g" target="_blank" style="color: gold; text-decoration: none; font-weight: bold;">
-				@fuck4g
-			</a>
-		</p>
-	</div>
-<footer>© 2025 Ivan Sirenko. Все права защищены.</footer>
-<script src="js/script.js"></script>
+
+		<header class="header">
+			<div class="logo">xyp9r</div>
+			<nav>
+				<a href="index.html" class="nav-link">Обо мне</a>
+				<a href="projects.html" class="nav-link">Проекты</a>
+				<a href="shop.html" class="nav-link">Магазин</a>
+				<a href="contacts.html" class="nav-link">Контакты</a>
+			</nav>
+		</header>
+
+		<button id="theme-btn">☀️</button>
+
+		<div class="contact-container">
+			<h1>Связаться со мной</h1>
+			<p>Есть предложение по работе или вопрос? Пишите, обсудим!</p>
+			<div class="social-links">
+				<a href="https://t.me/fuck4g" target="_blank" class="social-btn telegram">Telegram</a>
+				<a href="https://github.com/xyp9r" target="_blank" class="social-btn github">GitHub</a>
+				<a href="mailto:sirenko.ivan77@gmail.com" class="social-btn email">Email</a>
+			</div>
+			<form class="contact-form">
+				<div class="form-group">
+					<input type="text" placeholder="Ваше имя" required>
+				</div>
+				<div class="form-group">
+					<input type="email" placeholder="Ваш Email" required>
+				</div>
+				<div class="form-group">
+					<textarea rows="5" placeholder="Сообщение..." required></textarea>
+				</div>
+				<button type="submit" class="btn">Отправить</button>
+			</form>
+		</div>
+		<footer>© 2026 Ivan Sirenko. Все права защищены.</footer>
+
+		<script src="js/script.js"></script>
 </body>
 </html>
