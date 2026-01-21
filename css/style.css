@@ -678,7 +678,7 @@ body.light-theme .hacker-card {
 .social-btn:hover {
     border-color: gold;
     color: gold;
-    transfotm: translateY(-3px);
+    transform: translateY(-3px);
 }
 
 /* Поля формы */
