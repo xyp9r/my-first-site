@@ -4,7 +4,7 @@ const contactForm = document.querySelector('.contact-form');
 
 // Проверяем есть ли форма //
 if (contactForm) {
-    contactForm.addEventListener('submit'), async function (event) {
+    contactForm.addEventListener('submit', async function (event) {
        event.preventDefault(); 
     }
     const btn = contactForm.querySelector('button');

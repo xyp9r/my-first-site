@@ -1,10 +1,15 @@
+/* =========================================
+   ЛОГИКА КОРЗИНЫ (js/cart.js)
+   FIXED VERSION
+   ========================================= */
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let cartItemsContainer = document.getElementById("cart-items");
 let emptyMessage = document.getElementById("empty-message");
 let orderBtn = document.getElementById("order-btn");
 let totalPriceLabel = document.getElementById("total-price");
 
-// Функция обновления счетчика в шапке (добавил её сюда, чтобы не было ошибки)
+// Функция обновления счетчика в шапке
 function updateCartCount() {
     let countLabel = document.getElementById("cart-count");
     if (countLabel) {
@@ -13,44 +18,59 @@ function updateCartCount() {
 }
 
 function renderCart() {
+    // 1. ВАЖНО: Очищаем контейнер перед отрисовкой, чтобы товары не дублировались
     cartItemsContainer.innerHTML = "";
+    
     let totalSum = 0;
     
-    // Обновляем шапку сразу при загрузке
+    // Обновляем шапку
     updateCartCount(); 
 
+    // Если корзина пуста
     if (cart.length === 0) {
-        emptyMessage.style.display = "block";
-        orderBtn.style.display = "none";
+        if (emptyMessage) emptyMessage.style.display = "block";
+        if (orderBtn) orderBtn.style.display = "none";
         if (totalPriceLabel) totalPriceLabel.style.display = "none";
     } else {
-        emptyMessage.style.display = "none";
-        orderBtn.style.display = "block";
+        if (emptyMessage) emptyMessage.style.display = "none";
+        if (orderBtn) orderBtn.style.display = "block";
         if (totalPriceLabel) totalPriceLabel.style.display = "block";
         
+        // Цикл по товарам
         cart.forEach(function(product, index) {
             if (!product.count) {
                 product.count = 1;
             }
+            
+            // Создаем карточку
             let card = document.createElement("div");
             card.classList.add("product-card");
+            
+            // Вставляем HTML с правильной структурой (item-info) для ровного дизайна
             card.innerHTML = `
                 <img src="${product.imgSrc}" alt="${product.title}">
-                <h3>${product.title}</h3>
-                <p>Размер: <b>${product.size || "Стандарт"}</b></p>
-                <p>Количество: <b>${product.count} шт.</b></p>
-                <div class="price">${product.price}</div>
+                
+                <div class="item-info">
+                    <h3>${product.title}</h3>
+                    <p>Размер: <b>${product.size || "Стандарт"}</b></p>
+                    <p>Количество: <b>${product.count} шт.</b></p>
+                    <div class="price">${product.price}</div>
+                </div>
+
                 <button class="delete-btn">Удалить</button>
             `;
             
+            // Считаем сумму
             let priceNumber = parseInt(product.price.replace(/\D/g, ""));
             totalSum = totalSum + (priceNumber * product.count);
             
+            // Логика кнопки удалить
             let deleteButton = card.querySelector(".delete-btn");
             deleteButton.addEventListener("click", function() {
                 removeItem(index);
             });
             
+            // Добавляем карточку на страницу
             cartItemsContainer.appendChild(card);
         });
         
@@ -63,11 +83,13 @@ function renderCart() {
 function removeItem(index) {
     cart.splice(index, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
-    renderCart();
+    renderCart(); // Перерисовываем
 }
 
+// Запуск при загрузке
 renderCart();
 
+// Логика кнопки оформления
 if (orderBtn) {
     orderBtn.addEventListener("click", function() {
         if (cart.length === 0) {
@@ -79,15 +101,18 @@ if (orderBtn) {
         
         setTimeout(function () {
             alert("Ваш заказ успешно оформлен! Менеджер свяжется с вами.");
+            
+            // Очищаем корзину
             cart = [];
             localStorage.removeItem("cart");
-            renderCart();
-            // updateCartCount уже внутри renderCart, но можно и тут вызвать
-            updateCartCount(); 
+            
+            renderCart(); // Перерисовываем пустую корзину
             
             orderBtn.innerText = "Оформить заказ";
             orderBtn.style.backgroundColor = "gold";
-            window.location.href = "index.html";
+            
+            // Можно перекинуть на главную
+             window.location.href = "index.html";
         }, 1500);
-    }); // <--- ВОТ ТУТ была главная проблема, я её исправил
+    });
 }
