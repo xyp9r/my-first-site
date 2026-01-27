@@ -1,12 +1,15 @@
 let buyButtons = document.querySelectorAll(".product-card button");
 let cartCountLabel = document.getElementById("cart-count");
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
 function updateCartCount() {
 	if (cartCountLabel) {
-		cartCountLabel.innerText = "Корзина (" + cart.length + ")";
+		cartCountLabel.innerText = "Cart (" + cart.length + ")";
 	}
 }
+
 updateCartCount();
+
 if (buyButtons.length > 0) {
 	buyButtons.forEach(function(button) {
 		button.addEventListener("click", function() {
@@ -16,10 +19,9 @@ if (buyButtons.length > 0) {
 			let price = card.querySelector(".price").innerText;
 			let size = card.querySelector(".size-select").value;
 			let itemFound = false;
+
 			for (let i = 0; i < cart.length; i++) {
-				// Если названия совпадают... 
 				if (cart[i].title === title && cart[i].size === size) {
-					// ...значит товар уже есть
 					itemFound = true;
 					if (!cart[i].count) {
 						cart[i].count = 1;
@@ -28,20 +30,24 @@ if (buyButtons.length > 0) {
 					break;
 				}
 			}
+
 			if (itemFound === false) {
-			let newProduct = {
-				title: title,
-				price : price,
-				imgSrc: imgSrc,
-				size: size,
-				count: 1
-			};
-			cart.push(newProduct);
+				let newProduct = {
+					title: title,
+					price : price,
+					imgSrc: imgSrc,
+					size: size,
+					count: 1
+				};
+				cart.push(newProduct);
 			}
+
 			localStorage.setItem("cart", JSON.stringify(cart));
 			updateCartCount();
+			
 			let originalText = button.innerText;
-			button.innerText = "Добавлено (Размер + " + size + ")";
+			// Перевод: Added
+			button.innerText = "Added (Size " + size + ")";
 			button.style.backgroundColor = "#4CAF50";
 			button.style.color = "white";
 
@@ -51,14 +57,5 @@ if (buyButtons.length > 0) {
 				button.style.color = "black";
 			}, 1000);
 		});
-		function getCountInCart(title) {
-			for(let i = 0; i < cart.length; i++) {
-				if(cart[i].title === title) {
-					return cart[i].count;
-				}
-			}
-			return 1;
-		}
-		
 	});
 }

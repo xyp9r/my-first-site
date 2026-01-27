@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Главная страница</title>
+    <title>Ivan Sirenko | Portfolio</title>
     <link rel="icon" type="image/png" href="img/foto.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,58 +15,79 @@
     <header class="header">
         <div class="logo">xyp9r</div>
         <nav>
-            <a href="index.html" class="nav-link">Обо мне</a>
-            <a href="projects.html" class="nav-link">Проекты</a>
-            <a href="shop.html" class="nav-link">Магазин</a>
-            <a href="contacts.html" class="nav-link">Контакты</a>
+            <a href="index.html" class="nav-link">About Me</a>
+            <a href="projects.html" class="nav-link">Projects</a>
+            <a href="shop.html" class="nav-link">Shop</a>
+            <a href="contacts.html" class="nav-link">Contact</a>
         </nav>
     </header>
+
+    <div class="crypto-sidebar">
+        <div class="crypto-widget">
+            💰 BTC: <span id="bitcoin-price">Loading...</span>
+        </div>
+        
+        <div class="crypto-widget">
+            💎 ETH: <span id="ethereum-price">Loading...</span>
+        </div>
+        
+        <div class="crypto-widget">
+            🟣 SOL: <span id="solana-price">Loading...</span>
+        </div>
+        
+        <div class="crypto-widget">
+            💎 TON: <span id="ton-price">Loading...</span>
+        </div>
+    </div>
     
     <button id="theme-btn">☀️</button>
 
     <div class="container">
-        <img src="img/foto.png" alt="Кот" class="avatar">
-        <h1>Ваня Сиренко</h1>
+
+        <img src="img/foto.png" alt="Ivan Sirenko" class="avatar">
+        <h1>Ivan Sirenko</h1>
         
-        <h2>Обо мне</h2>
-        <p>Я студент университета WSB Merito в Польше (г. Хожув). Учусь тому, что реально нравится. Сейчас активно развиваюсь во Frontend-разработке и создаю свои первые проекты.</p>
+        <h2>About Me</h2>
+        <p>I am a student at WSB Merito University in Poland (Chorzów). I study what I truly enjoy. Currently, I am actively developing in Frontend and creating my first projects.</p>
         
-        <h2>Моя цель</h2>
-        <p>Вырасти в мощного FullStack разработчика и попасть в команду Google.</p>
+        <h2>My Goal</h2>
+        <p>To grow into a powerful FullStack developer and join the Google team.</p>
         
-        <a href="https://t.me/fuck4g" class="btn" target="_blank">Нанять меня</a>
+        <a href="https://t.me/fuck4g" class="btn" target="_blank">Hire Me</a>
     </div> 
 
-    <h2 style="text-align: center; margin-top: 50px; color: var(--text-color);">Мои Проекты</h2>
+    <h2 style="text-align: center; margin-top: 50px; color: var(--text-color);">My Projects</h2>
     
     <div class="project-grid">
         <div class="project-card">
-            <h3>Сайт Визитка</h3>
-            <p>Мой первый сайт на HTML/CSS</p>
-            <a href="index.html">Посмотреть</a>
+            <h3>Portfolio Site</h3>
+            <p>My first website using HTML/CSS</p>
+            <a href="index.html">View Project</a>
         </div>
         
         <div class="project-card">
             <h3>Google Clone</h3>
-            <p>Копия главной страницы Google</p>
-            <a href="google.html">Посмотреть</a>
+            <p>A copy of the main Google page</p>
+            <a href="google.html">View Project</a>
         </div>
         
         <div class="project-card">
-            <h3>Магазин кроссовок</h3>
-            <p>Интернет-магазин с корзиной</p>
-            <a href="shop.html">Посмотреть</a>
+            <h3>Sneakers Shop</h3>
+            <p>Online store with a shopping cart</p>
+            <a href="shop.html">View Project</a>
         </div>
         
         <div class="project-card hacker-card">
             <h3>Matrix Effect</h3>
-            <p>Цифровой дождь на JavaScript (Canvas)</p>
-            <a href="matrix.html">Войти в матрицу</a> 
+            <p>Digital rain using JavaScript (Canvas)</p>
+            <a href="matrix.html">Enter Matrix</a> 
         </div>
     </div>
 
-    <footer>© 2025 Ivan Sirenko. Все права защищены.</footer>
+    <footer>© 2025 Ivan Sirenko. All rights reserved.</footer>
 
     <script src="js/script.js"></script>
+    <script src="js/crypto.js"></script>
+    <script src="js/light-theme.js"></script>
 </body>
 </html>

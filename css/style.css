@@ -239,6 +239,55 @@ body.light-theme footer {
     color: #333;
 }
 
+body.light-theme .shop-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+body.light-theme .shop-header a {
+    color: #333;
+}
+
+body.ligth-theme .shop-header .logo {
+    color: #d4af37;
+}
+
+body.light-theme .product-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    color: #000000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+body.light-theme .product-card h3 {
+    color: #000000;
+}
+
+body.light-theme .product-card .price {
+    color: #000000;
+    font-weigth: 800;
+}
+
+body.light-theme .product-card p {
+    color: #555555 !important;
+}
+
+body.light-theme .size-select {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ccc;
+}
+
+body.light-theme .product-card button {
+    background-color: #d4af37;
+    color: #000;
+}
+
+body.light-theme .product-card button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
 /* =========================================
    5. ПРОЕКТЫ (СЕТКА)
    ========================================= */
@@ -903,4 +952,64 @@ body.light-theme::-webkit-scrollbar-thumb:hover {
         margin-left: 0;
         width: 100%;
     }
+}
+
+/* ВИДЖЕТЫ */
+
+/* Боковая крипто-панель */
+
+.crypto-sidebar {
+    position: fixed;  /* Коробка приклеена к экрану */
+    top: 70px;       /* Отступ сверху */
+    left: 20px;       /* Отступ слева */
+    z-index: 100;     /* Поверх всех */
+    
+    /* Магия столбика: */
+    display: flex; 
+    flex-direction: column; /* Выстроить детей в колонну */
+    gap: 15px;              /* Расстояние между монетками */
+}
+
+/* --- 2. САМА МОНЕТКА (ВИДЖЕТ) --- */
+.crypto-widget {
+    /* ВАЖНО: Тут НЕ должно быть position: absolute! */
+    position: relative; /* Или вообще удали position */
+    
+    background-color: #000;
+    border: 1px solid gold;
+    color: gold;
+    padding: 10px;
+    border-radius: 8px;
+    width: 200px; /* Фиксированная ширина */
+    
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    
+    box-shadow: 0 4px 10px rgba(0,0,0, 0.5);
+    transition: transform 0.2s;
+}
+
+.crypto-widget:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform:translateX(0px); }
+}
+
+/* Белая тема биткоина */
+
+body.light-theme .crypto-widget {
+    background-color: #ffffff;
+    color: #333333;
+    border-color: #ccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .crypto-widget:hover {
+    background-color: #f9f9f9;
 }
