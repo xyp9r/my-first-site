@@ -1,3 +1,20 @@
+:root {
+    /* Темная тема ( по умолчанию )*/
+
+    --bg-body: #050505;
+    --bg-card: #000000;
+    --text-main: #ffffff;
+    --border-color: gold;
+}
+
+body.light-theme {
+    /* Светлая тема (переопределяем значения) */
+    --bg-body: #ffffff;
+    --bg-card: #f0f0f0;
+    --text-main: #333333;
+    --border-color: #000000;
+}
+
 /* =========================================
    1. БАЗОВЫЕ НАСТРОЙКИ (RESET & MAIN)
    ========================================= */
@@ -939,6 +956,8 @@ body.light-theme::-webkit-scrollbar-thumb:hover {
     transform: scale(1.05);
 }
 
+/* Адаптация мобилка корзина */
+
 @media (max-width: 600px) {
     #card-items .product-card {
         flex-direction: column;
@@ -975,9 +994,9 @@ body.light-theme::-webkit-scrollbar-thumb:hover {
     /* ВАЖНО: Тут НЕ должно быть position: absolute! */
     position: relative; /* Или вообще удали position */
     
-    background-color: #000;
-    border: 1px solid gold;
-    color: gold;
+    background-color: var(--bg-card); /* <--- Магия здесь */
+    color: var(--border-color);       /* Используем цвет рамки для текста (золото/серый) */
+    border: 1px solid var(--border-color);
     padding: 10px;
     border-radius: 8px;
     width: 200px; /* Фиксированная ширина */
@@ -1004,12 +1023,111 @@ body.light-theme::-webkit-scrollbar-thumb:hover {
 /* Белая тема биткоина */
 
 body.light-theme .crypto-widget {
-    background-color: #ffffff;
-    color: #333333;
-    border-color: #ccc;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 body.light-theme .crypto-widget:hover {
     background-color: #f9f9f9;
 }
+
+/* Адаптация мобилка главная */
+
+@media (max-width: 768px) {
+
+    /* Шапка */
+
+    .header {
+        position: relative;
+        z-index: 1000;
+        background-color: #000;
+
+        flex-direction: column;
+        heigth: auto;
+        padding: 15px 0;
+    }
+
+    .header nav {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* Крипто-панель */
+
+    .crypto-sidebar {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 15px 10px;
+        background-color: var(--bg-body); /* Пусть совпадает с фоном сайта */
+        border-bottom: 1px solid var(--border-color);
+        z-index: 1;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Настройка самих карточек монет для телефона */
+
+    .crypto-widget {
+        min-width: 100px;
+        margin-right: 10px;
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    /* Скрывает скролл бар */
+
+    .crypto-sidebar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Контент */
+
+    .container {
+        width: 90%;
+        margin-top: 10px;
+        padding-bottom: 50px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+
+/* Контакты мобилка горизонтальный скролл */
+
+.social-links {
+        display: flex;           /* Выстраиваем в ряд */
+        flex-wrap: nowrap;       /* Запрещаем перенос на новую строку */
+        overflow-x: auto;        /* Разрешаем скролл влево-вправо */
+        gap: 15px;               /* Отступы между кнопками */
+        padding: 15px 5px;    /* Место снизу (на всякий случай) */
+        justify-content: flex-start; /* Начинаем слева */
+        
+        /* === МАГИЯ: СКРЫВАЕМ ПОЛЗУНОК === */
+        
+        /* 1. Для Chrome, Safari и Opera */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* 2. Для IE и старого Edge */
+        -ms-overflow-style: none;
+
+        /* 3. Для Firefox */
+        scrollbar-width: none;
+    }
+
+    /* Чтобы кнопки не сжимались, если экран узкий */
+    .social-btn {
+        min-width: 120px; /* Фиксированный размер кнопки */
+        white-space: nowrap; /* Текст в одну строку */
+    }
+
+
