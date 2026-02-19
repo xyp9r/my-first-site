@@ -728,7 +728,7 @@ body.light-theme .hacker-card {
     display: flex;
     justify-content: center;
     gap: 15px;
-    margin: 30px 0;
+    margin: 30px 0; 
 }
 
 .social-btn {
@@ -1107,8 +1107,8 @@ body.light-theme .crypto-widget:hover {
         flex-wrap: nowrap;       /* Запрещаем перенос на новую строку */
         overflow-x: auto;        /* Разрешаем скролл влево-вправо */
         gap: 15px;               /* Отступы между кнопками */
-        padding: 15px 5px;    /* Место снизу (на всякий случай) */
-        justify-content: flex-start; /* Начинаем слева */
+        padding: 5px 5px;    /* Место снизу (на всякий случай) */
+       /* justify-content: flex-start; /* Начинаем слева */ /* ебучая хуйня из-за которой у меня было не красиво видно на широких экранах кнопки */
         
         /* === МАГИЯ: СКРЫВАЕМ ПОЛЗУНОК === */
         
